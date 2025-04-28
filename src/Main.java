@@ -1,137 +1,83 @@
-
-import java.util.Arrays;
+import java.util.Objects;
 import java.util.Scanner;
 import java.io.File;
+
 public class Main {
+    private static int i = 0;
     private static String fileName;
     private static String path;
-    public static void main(String[] args) {
-        // directory path
-        String dirPath = System.getProperty("user.dir");
-        // check existed files here
-        File directory = new File(dirPath);
-        File[] files = directory.listFiles();
+    private static String justArray;
 
-        if (files != null)
-            for (File file : files)
-                if (findXMLfile(file.getName()))
-                    System.out.println(file.getName());
+    public static void main(String[] args) {
+        String dirPath = System.getProperty("user.dir");
+        File directory = new File(dirPath);
 
         Scanner scanner = new Scanner(System.in);
         System.out.print("> ");
         while (scanner.hasNext()) {
-            String line = scanner.nextLine();
-            line = line.toLowerCase();
-
-            String[] parts = line.split(" ");
-
-            int i = 0;
-            for(String part : parts){
-                i++;
-            }
-            if(i < 2) {
-
-            }
-            else if(i == 1){
-
-            }
-            else{
-                System.out.println("open <file>");
+            String myStr = scanner.nextLine();
+            if(myStr){
+                smartSplit(myStr, 2);
             }
 
-//            checkByChar(line);
 
-//            switch (line) {
+//            System.out.println(myStr);
+//            String line = scanner.nextLine();
+//            line = line.toLowerCase();
+//
+//            switch (){
 //                case "open":
-//                    fileName = scanner.nextLine();
+//                    i = 0;
+//
+//                    switch (i){
+//                        case 0: break;
+//                        case 1: System.out.println("open <file>"); break;
+//                        case 2:
+//
+//                            break;
+//                        default: break;
+//                    }
 //                    break;
-////                    if(){
-////                        System.out.println("open <file>");
-////                        break;
-////                    }
-////                    else{
-////                        fileName = scanner.next();
-////                        System.out.println(fileName);
-////                        break;
-////                    }
-//                case "close": break;
-//                case "save": break;
-//                case "saveas":
-//                    fileName = scanner.next();
-//                    System.out.println(fileName);
-//                    if(fileName.isEmpty()) {
-//                        System.out.println("saveas <file>");
+//                    case "close":
 //                        break;
-//                    }
-//                    char[] charArray1 = fileName.toCharArray();
-//                    char[] charArray2 = { '.', 'x', 'm', 'l'};
-//                    for(int i = 0; i < charArray1.length; i++){
-//                        try {
-//                            if (Arrays.toString(charArray1) == Arrays.toString(charArray2)) {
-//                                if (charArray1[i] == '.')
-//                                    if (charArray1[i + 1] == 'x')
-//                                        if (charArray1[i + 2] == 'm')
-//                                            if (charArray1[i + 3] == 'l') {
-//                                                System.out.println("Successfully saved another " +
-//                                                        fileName + "\n");
-//                                                System.out.println(".xml is exist");
-//                                            }
-//                            }
-//                            else{
-//                                System.out.println("empty name: " + charArray1);
-//                                System.out.println("use something like that: fileName" + charArray1);
-//                            }
-//                        }catch (Exception e){
-//                            System.err.println(e.getMessage());
+//                    case "save":
+//                        break;
+//                    // я понимаю что saveas тут не так должен работать...
+//                    case "saveas":
+//                        i = 0;
+//
+//                        switch (i){
+//                            case 0: break;
+//                            case 1: System.out.println("saveas <file>"); break;
+//                            case 2:
+//
+//                                break;
+//                            default: break;
 //                        }
-//                    }
-//                    scanner.nextLine();
-//                    break;
-//                case "help":
-//                    scanner.nextLine();
-//                    System.out.println("The following commands are supported:\n" +
-//                            "open <file>    opens <file>\n" +
-//                            "close          closes currently opened file\n" +
-//                            "save           saves the currently open file\n" +
-//                            "saveas <file>  saves the currently open file in <file>\n" +
-//                            "help           prints this information\n" +
-//                            "exit           exists the program\n");
-//                    break;
-//                case "exit":
-//                    System.out.println("Exiting the program...");
-//                    scanner.close();
-//                    System.exit(0);
-//                default:
-//                    System.out.println("Unknown command, for more information write this "+
-//                            "command:\n> help");
-//                    break;
+//                        break;
+//                    case "help":
+//                        break;
+//                    case "exit":
+//                        break;
+//                    default: System.out.println("Unknown command, for more information write this "+
+//                            "command:\n> help"); break;
+//
 //            }
+
             System.out.print("> ");
         }
     }
-
-    public static void checkByChar(String line){
-        char[] charArray = line.toCharArray();
-        char[] newCharArray;
-
-        for(int i = 0; i < charArray.length; i++)
-            if (charArray[i] == ' '){
-                System.out.println(i);
-                for (int j = 0; j < i; j++){
-//                    charArray[j] = newCharArray
-                }
-                for (int k = i + 1; k < charArray.length; k++){
-                    System.out.print(charArray[k]);
-                }
-                break;
+    public static void smartSplit(String myStr, int words){
+        int i = 0;
+        String regex = " ";
+        String[] myArray = myStr.split(regex);
+        for (String s : myArray) {
+            if(i < words){
+                i++;
+                System.out.println(s);
             }
 
+        }
     }
 
-    public static boolean findXMLfile(String fileName){
-        if(fileName.endsWith(".xml"))
-            return true;
-        else
-            return false;
-    }
 }
