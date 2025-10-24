@@ -1,26 +1,34 @@
 public class Main {
     public static void main(String[] args) {
-        if(args[0] == "open"){
+        if(args[0].equals("open")){
             Open open = new Open();
-            open.execute(args[1]);
+            try {
+                open.execute(args[1]);
+            } catch (Exception e) {
+                System.out.println("2 arguments");
+            }
         }
-        if(args[0] == "close"){
+        if(args[0].equals("close")){
             Close close = new Close();
             close.execute();
         }
-        if(args[0] == "save"){
+        if(args[0].equals("save")){
             Save save = new Save();
             save.execute();
         }
-        if(args[0] == "saveas"){
+        if(args[0].equals("saveas")){
             SaveAs saveas = new SaveAs();
-            saveas.execute(args[1]);
+            try {
+                saveas.execute(args[1]);
+            } catch (Exception e) {
+                System.out.println("2 arguments");
+            }
         }
-        if(args[0] == "help"){
+        if(args[0].equals("help")){
             Help help = new Help();
             help.execute();
         }
-        if(args[0] == "exit"){
+        if(args[0].equals("exit")){
             Exit exit = new Exit();
             exit.execute();
         }

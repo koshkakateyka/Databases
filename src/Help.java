@@ -1,6 +1,5 @@
 public class Help extends Command{
     public Help(){
-        super();
     }
 
     public void execute(){
