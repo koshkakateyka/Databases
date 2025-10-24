@@ -1,8 +1,8 @@
-public class SaveAs extends Command {
-    public SaveAs(){
-    }
+import Impl.SaveAsImpl;
 
-    public void execute(String arguments){
-
+public class SaveAs implements SaveAsImpl {
+    @Override
+    public void execute(String filePath) {
+        System.out.println("saveas");
     }
 }

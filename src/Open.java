@@ -1,13 +1,8 @@
-public class Open extends Command {
-    public Open(){
+import Impl.OpenImpl;
+
+public class Open implements OpenImpl {
+    @Override
+    public void execute(String filePath) {
+        System.out.println("open");
     }
-
-
-    public void execute(String arguments){
-        System.out.println("Hello World!");
-    }
-
-//    public String openFile(String fileName){
-//        return fileName;
-//    }
 }

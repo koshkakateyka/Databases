@@ -1,12 +1,14 @@
-public class Help extends Command{
-    public Help(){
-    }
+import Impl.HelpImpl;
 
+public class Help implements HelpImpl {
+    @Override
     public void execute(){
-        System.out.println("some information about help");
+        System.out.println("The following commands are supported:\n" +
+                "open <file> opens <file>\n" +
+                "close closes currently opened file\n" +
+                "save saves the currently open file\n" +
+                "saveas <file> saves the currently open file in <file>\n" +
+                "help prints this information\n" +
+                "exit exists the program\n");
     }
-
-//    public String information(){
-//        return "some information about help";
-//    }
 }

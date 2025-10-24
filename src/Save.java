@@ -1,12 +1,8 @@
-public class Save extends Command {
-    public Save(){
+import Impl.SaveImpl;
+
+public class Save implements SaveImpl {
+    @Override
+    public void execute() {
+
     }
-
-    public void execute(){
-
-    }
-
-//    public void save(){
-//
-//    }
 }
