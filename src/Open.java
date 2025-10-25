@@ -1,8 +1,7 @@
-import Impl.OpenImpl;
-
 import java.io.*;
 
-public class Open implements OpenImpl {
+public class Open extends Command {
+
     @Override
     public void execute(String filePath) {
         try {

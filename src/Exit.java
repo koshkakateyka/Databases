@@ -1,9 +1,7 @@
-import Impl.ExitImpl;
-
-public class Exit implements ExitImpl {
+public class Exit extends Command {
     @Override
-    public boolean execute(){
+    public void execute(){
         System.out.println("exit");
-        return false;
+        System.exit(0);
     }
 }

@@ -1,6 +1,4 @@
-import Impl.SaveImpl;
-
-public class Save implements SaveImpl {
+public class Save extends Command {
     @Override
     public void execute() {
 

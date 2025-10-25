@@ -1,6 +1,4 @@
-import Impl.CloseImpl;
-
-public class Close implements CloseImpl {
+public class Close extends Command {
     @Override
     public void execute(){
         System.out.println("close");
