@@ -1,5 +1,5 @@
 package Impl;
 
 public interface ExitImpl {
-    void execute();
+    boolean execute();
 }
